@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Kombosha Secondary School Admin Dashboard"
+    >
+
+    <title>KSS | Admin Dashboard</title>
+
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="admin-brand">
+
+            <div class="admin-logo">
+                KSS
+            </div>
+
+            <div>
+                <h2>Kombosha</h2>
+                <span>Admin Panel</span>
+            </div>
+
+        </div>
+
+
+        <nav class="admin-navigation">
+
+            <button
+                class="admin-nav-item active"
+                data-section="dashboard"
+            >
+                📊
+                <span>Dashboard</span>
+            </button>
+
+            <button
+                class="admin-nav-item"
+                data-section="students"
+            >
+                👨‍🎓
+                <span>Students</span>
+            </button>
+
+            <button
+                class="admin-nav-item"
+                data-section="notes"
+            >
+                📚
+                <span>Notes</span>
+            </button>
+
+            <button
+                class="admin-nav-item"
+                data-section="tutorials"
+            >
+                🎥
+                <span>Tutorials</span>
+            </button>
+
+            <button
+                class="admin-nav-item"
+                data-section="news"
+            >
+                📢
+                <span>News</span>
+            </button>
+
+            <button
+                class="admin-nav-item"
+                data-section="assignments"
+            >
+                📝
+                <span>Assignments</span>
+            </button>
+
+            <button
+                class="admin-nav-item"
+                data-section="payments"
+            >
+                💳
+                <span>Payments</span>
+            </button>
+
+            <button
+                class="admin-nav-item"
+                data-section="attendance"
+            >
+                📅
+                <span>Attendance</span>
+            </button>
+
+            <button
+                class="admin-nav-item"
+                data-section="settings"
+            >
+                ⚙️
+                <span>Settings</span>
+            </button>
+
+        </nav>
+
+
+        <button class="logout-btn" id="logoutBtn">
+            🚪 Logout
+        </button>
+
+    </aside>
+
+
+    <!-- =========================
+         MAIN AREA
+    ========================== -->
+
+    <main class="admin-main">
+
+        <!-- TOP BAR -->
+
+        <header class="admin-header">
+
+            <button
+                class="mobile-menu"
+                id="mobileMenu"
+                aria-label="Open admin menu"
+            >
+                ☰
+            </button>
+
+
+            <div>
+
+                <h1 id="pageTitle">
+                    Dashboard
+                </h1>
+
+                <p>
+                    Kombosha Secondary School Management System
+                </p>
+
+            </div>
+
+
+            <div class="admin-user">
+
+                <div class="admin-avatar">
+                    A
+                </div>
+
+                <div>
+                    <strong>Administrator</strong>
+                    <small>School Admin</small>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =========================
+             DASHBOARD
+        ========================== -->
+
+        <section
+            class="admin-section active"
+            id="dashboard"
+        >
+
+            <div class="welcome-card">
+
+                <div>
+
+                    <span>
+                        ADMINISTRATION CENTER
+                    </span>
+
+                    <h2>
+                        Welcome to KSS Admin Dashboard 👋
+                    </h2>
+
+                    <p>
+                        Manage students, learning materials,
+                        announcements, payments and school
+                        services from one place.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        👨‍🎓
+                    </div>
+
+                    <div>
+                        <span>Total Students</span>
+                        <strong id="totalStudents">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        📚
+                    </div>
+
+                    <div>
+                        <span>Total Notes</span>
+                        <strong id="totalNotes">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">
+                        🎥
+                    </div>
+
+                    <div>
+                        <span>Tutorials</span>
+                        <strong id="totalTutorials">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        💳
+                    </div>
+
+                    <div>
+                        <span>Pending Payments</span>
+                        <strong id="pendingPayments">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="quick-grid">
+
+                <button
+                    class="quick-card"
+                    data-go="notes"
+                >
+                    <span>📚</span>
+                    <strong>Add Notes</strong>
+                    <small>
+                        Upload learning materials
+                    </small>
+                </button>
+
+
+                <button
+                    class="quick-card"
+                    data-go="tutorials"
+                >
+                    <span>🎥</span>
+                    <strong>Add Tutorial</strong>
+                    <small>
+                        Add educational videos
+                    </small>
+                </button>
+
+
+                <button
+                    class="quick-card"
+                    data-go="news"
+                >
+                    <span>📢</span>
+                    <strong>Publish News</strong>
+                    <small>
+                        Create announcements
+                    </small>
+                </button>
+
+
+                <button
+                    class="quick-card"
+                    data-go="students"
+                >
+                    <span>👨‍🎓</span>
+                    <strong>Students</strong>
+                    <small>
+                        Review student applications
+                    </small>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             STUDENTS
+        ========================== -->
+
+        <section
+            class="admin-section"
+            id="students"
+        >
+
+            <div class="section-top">
+
+                <div>
+
+                    <span class="section-label">
+                        STUDENT MANAGEMENT
+                    </span>
+
+                    <h2>
+                        Students
+                    </h2>
+
+                </div>
+
+                <button class="primary-admin-btn">
+                    ➕ Add Student
+                </button>
+
+            </div>
+
+
+            <div class="table-card">
+
+                <div class="empty-state">
+
+                    <div>👨‍🎓</div>
+
+                    <h3>
+                        No student applications yet
+                    </h3>
+
+                    <p>
+                        Student registration requests
+                        will appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             NOTES
+        ========================== -->
+
+        <section
+            class="admin-section"
+            id="notes"
+        >
+
+            <div class="section-top">
+
+                <div>
+
+                    <span class="section-label">
+                        DIGITAL LEARNING
+                    </span>
+
+                    <h2>
+                        Manage Notes
+                    </h2>
+
+                    <p>
+                        Add and manage notes for Grades 9–12.
+                    </p>
+
+                </div>
+
+                <button
+                    class="primary-admin-btn"
+                    id="openNoteForm"
+                >
+                    ➕ Add Note
+                </button>
+
+            </div>
+
+
+            <div
+                class="content-list"
+                id="notesList"
+            >
+
+                <div class="empty-state">
+
+                    <div>📚</div>
+
+                    <h3>
+                        No notes added
+                    </h3>
+
+                    <p>
+                        Click "Add Note" to create your
+                        first learning material.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             TUTORIALS
+        ========================== -->
+
+        <section
+            class="admin-section"
+            id="tutorials"
+        >
+
+            <div class="section-top">
+
+                <div>
+
+                    <span class="section-label">
+                        VIDEO LEARNING
+                    </span>
+
+                    <h2>
+                        Tutorials
+                    </h2>
+
+                    <p>
+                        Manage educational video tutorials.
+                    </p>
+
+                </div>
+
+                <button
+                    class="primary-admin-btn"
+                    id="addTutorialBtn"
+                >
+                    ➕ Add Tutorial
+                </button>
+
+            </div>
+
+
+            <div class="content-list">
+
+                <div class="empty-state">
+
+                    <div>🎥</div>
+
+                    <h3>
+                        No tutorials added
+                    </h3>
+
+                    <p>
+                        Educational tutorials will appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             NEWS
+        ========================== -->
+
+        <section
+            class="admin-section"
+            id="news"
+        >
+
+            <div class="section-top">
+
+                <div>
+
+                    <span class="section-label">
+                        COMMUNICATION
+                    </span>
+
+                    <h2>
+                        News & Announcements
+                    </h2>
+
+                </div>
+
+                <button
+                    class="primary-admin-btn"
+                    id="addNewsBtn"
+                >
+                    ➕ Publish News
+                </button>
+
+            </div>
+
+
+            <div class="content-list">
+
+                <div class="empty-state">
+
+                    <div>📢</div>
+
+                    <h3>
+                        No announcements
+                    </h3>
+
+                    <p>
+                        Published school news will appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ASSIGNMENTS
+        ========================== -->
+
+        <section
+            class="admin-section"
+            id="assignments"
+        >
+
+            <div class="section-top">
+
+                <div>
+
+                    <span class="section-label">
+                        ACADEMIC WORK
+                    </span>
+
+                    <h2>
+                        Assignments
+                    </h2>
+
+                </div>
+
+                <button class="primary-admin-btn">
+                    ➕ Add Assignment
+                </button>
+
+            </div>
+
+
+            <div class="content-list">
+
+                <div class="empty-state">
+
+                    <div>📝</div>
+
+                    <h3>
+                        No assignments
+                    </h3>
+
+                    <p>
+                        Create assignments for students.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PAYMENTS
+        ========================== -->
+
+        <section
+            class="admin-section"
+            id="payments"
+        >
+
+            <div class="section-top">
+
+                <div>
+
+                    <span class="section-label">
+                        FINANCE
+                    </span>
+
+                    <h2>
+                        Payment Management
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="payment-status-grid">
+
+                <div class="payment-box pending">
+                    <span>⏳</span>
+                    <strong>Pending</strong>
+                    <small>0 payments</small>
+                </div>
+
+                <div class="payment-box paid">
+                    <span>✓</span>
+                    <strong>Paid</strong>
+                    <small>0 payments</small>
+                </div>
+
+                <div class="payment-box failed">
+                    <span>✕</span>
+                    <strong>Failed</strong>
+                    <small>0 payments</small>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ATTENDANCE
+        ========================== -->
+
+        <section
+            class="admin-section"
+            id="attendance"
+        >
+
+            <div class="section-top">
+
+                <div>
+
+                    <span class="section-label">
+                        SCHOOL ATTENDANCE
+                    </span>
+
+                    <h2>
+                        Attendance
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="empty-state">
+
+                <div>📅</div>
+
+                <h3>
+                    Attendance management
+                </h3>
+
+                <p>
+                    Student attendance tools will be
+                    connected in a later part.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SETTINGS
+        ========================== -->
+
+        <section
+            class="admin-section"
+            id="settings"
+        >
+
+            <div class="section-top">
+
+                <div>
+
+                    <span class="section-label">
+                        SYSTEM
+                    </span>
+
+                    <h2>
+                        Settings
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-card">
+
+                <h3>
+                    School Information
+                </h3>
+
+                <label>
+                    School Name
+                </label>
+
+                <input
+                    type="text"
+                    value="Kombosha Secondary School"
+                >
+
+                <label>
+                    School Grades
+                </label>
+
+                <input
+                    type="text"
+                    value="Grade 9 - Grade 12"
+                >
+
+                <button class="primary-admin-btn">
+                    Save Settings
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         ADD NOTE MODAL
+    ========================== -->
+
+    <div
+        class="admin-modal"
+        id="noteModal"
+    >
+
+        <div class="admin-modal-box">
+
+            <button
+                class="modal-close"
+                id="closeNoteForm"
+            >
+                ×
+            </button>
+
+            <div class="modal-icon">
+                📚
+            </div>
+
+            <h2>
+                Add Learning Note
+            </h2>
+
+            <p>
+                Add a learning material for students.
+            </p>
+
+
+            <form id="noteForm">
+
+                <label for="noteTitle">
+                    Note Title
+                </label>
+
+                <input
+                    type="text"
+                    id="noteTitle"
+                    placeholder="Example: Grade 11 Chemistry Unit 1"
+                    required
+                >
+
+
+                <label for="noteGrade">
+                    Grade
+                </label>
+
+                <select id="noteGrade" required>
+
+                    <option value="">
+                        Select Grade
+                    </option>
+
+                    <option value="9">
+                        Grade 9
+                    </option>
+
+                    <option value="10">
+                        Grade 10
+                    </option>
+
+                    <option value="11">
+                        Grade 11
+                    </option>
+
+                    <option value="12">
+                        Grade 12
+                    </option>
+
+                </select>
+
+
+                <label for="noteSubject">
+                    Subject
+                </label>
+
+                <input
+                    type="text"
+                    id="noteSubject"
+                    placeholder="Example: Chemistry"
+                    required
+                >
+
+
+                <label for="noteDescription">
+                    Description
+                </label>
+
+                <textarea
+                    id="noteDescription"
+                    placeholder="Short description of the note"
+                    rows="4"
+                ></textarea>
+
+
+                <label for="noteFile">
+                    Note File
+                </label>
+
+                <input
+                    type="file"
+                    id="noteFile"
+                    accept=".pdf,.doc,.docx"
+                    required
+                >
+
+
+                <button
+                    type="submit"
+                    class="primary-admin-btn full-admin-btn"
+                >
+                    📤 Add Note
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="admin.js"></script>
+
+</body>
+
+</html>
