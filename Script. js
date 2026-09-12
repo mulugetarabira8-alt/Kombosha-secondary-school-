@@ -1,0 +1,299 @@
+/* =========================================
+   KOMBOSHA SECONDARY SCHOOL
+   PART 1 — BASIC INTERACTION
+========================================= */
+
+"use strict";
+
+
+/* =========================================
+   GET ELEMENTS
+========================================= */
+
+const menuBtn = document.getElementById("menuBtn");
+const navigation = document.getElementById("navigation");
+
+const openLogin = document.getElementById("openLogin");
+const heroLogin = document.getElementById("heroLogin");
+
+const registerBtn = document.getElementById("registerBtn");
+const modalRegister = document.getElementById("modalRegister");
+
+const loginModal = document.getElementById("loginModal");
+const registerModal = document.getElementById("registerModal");
+
+const closeLogin = document.getElementById("closeLogin");
+const closeRegister = document.getElementById("closeRegister");
+
+const loginForm = document.getElementById("loginForm");
+const registerForm = document.getElementById("registerForm");
+
+
+/* =========================================
+   MOBILE MENU
+========================================= */
+
+menuBtn.addEventListener("click", function () {
+
+    navigation.classList.toggle("show");
+
+});
+
+
+/* =========================================
+   OPEN LOGIN MODAL
+========================================= */
+
+function showLoginModal() {
+
+    loginModal.classList.add("show");
+
+    document.body.style.overflow = "hidden";
+
+}
+
+
+/* =========================================
+   CLOSE LOGIN MODAL
+========================================= */
+
+function hideLoginModal() {
+
+    loginModal.classList.remove("show");
+
+    document.body.style.overflow = "";
+
+}
+
+
+/* =========================================
+   OPEN REGISTRATION MODAL
+========================================= */
+
+function showRegisterModal() {
+
+    registerModal.classList.add("show");
+
+    document.body.style.overflow = "hidden";
+
+}
+
+
+/* =========================================
+   CLOSE REGISTRATION MODAL
+========================================= */
+
+function hideRegisterModal() {
+
+    registerModal.classList.remove("show");
+
+    document.body.style.overflow = "";
+
+}
+
+
+/* =========================================
+   LOGIN BUTTONS
+========================================= */
+
+openLogin.addEventListener(
+    "click",
+    showLoginModal
+);
+
+heroLogin.addEventListener(
+    "click",
+    showLoginModal
+);
+
+
+/* =========================================
+   REGISTRATION BUTTONS
+========================================= */
+
+registerBtn.addEventListener(
+    "click",
+    showRegisterModal
+);
+
+
+modalRegister.addEventListener(
+    "click",
+    function () {
+
+        hideLoginModal();
+        showRegisterModal();
+
+    }
+);
+
+
+/* =========================================
+   CLOSE BUTTONS
+========================================= */
+
+closeLogin.addEventListener(
+    "click",
+    hideLoginModal
+);
+
+closeRegister.addEventListener(
+    "click",
+    hideRegisterModal
+);
+
+
+/* =========================================
+   CLOSE WHEN CLICKING OUTSIDE
+========================================= */
+
+loginModal.addEventListener(
+    "click",
+    function (event) {
+
+        if (event.target === loginModal) {
+            hideLoginModal();
+        }
+
+    }
+);
+
+
+registerModal.addEventListener(
+    "click",
+    function (event) {
+
+        if (event.target === registerModal) {
+            hideRegisterModal();
+        }
+
+    }
+);
+
+
+/* =========================================
+   ESC KEY
+========================================= */
+
+document.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (event.key === "Escape") {
+
+            hideLoginModal();
+            hideRegisterModal();
+
+        }
+
+    }
+);
+
+
+/* =========================================
+   LOGIN FORM
+   PART 1 DEMO ONLY
+========================================= */
+
+loginForm.addEventListener(
+    "submit",
+    function (event) {
+
+        event.preventDefault();
+
+        const studentId =
+            document.getElementById("studentId").value.trim();
+
+        const password =
+            document.getElementById("password").value.trim();
+
+        if (!studentId || !password) {
+
+            alert(
+                "Please enter your Student ID and password."
+            );
+
+            return;
+        }
+
+        alert(
+            "Login system will be connected to the secure student database in a later part."
+        );
+
+    }
+);
+
+
+/* =========================================
+   REGISTRATION FORM
+   PART 1 DEMO ONLY
+========================================= */
+
+registerForm.addEventListener(
+    "submit",
+    function (event) {
+
+        event.preventDefault();
+
+        const firstName =
+            document.getElementById("firstName").value.trim();
+
+        const secondName =
+            document.getElementById("secondName").value.trim();
+
+        const grade =
+            document.getElementById("grade").value;
+
+        const section =
+            document.getElementById("section").value.trim();
+
+
+        if (
+            !firstName ||
+            !secondName ||
+            !grade ||
+            !section
+        ) {
+
+            alert(
+                "Please complete all registration fields."
+            );
+
+            return;
+        }
+
+
+        alert(
+            "Registration form received successfully. Database and admin approval will be added in a later part."
+        );
+
+
+        registerForm.reset();
+
+        hideRegisterModal();
+
+    }
+);
+
+
+/* =========================================
+   CLOSE MOBILE MENU AFTER NAVIGATION
+========================================= */
+
+const navLinks =
+    document.querySelectorAll(".nav-link");
+
+navLinks.forEach(
+    function (link) {
+
+        link.addEventListener(
+            "click",
+            function () {
+
+                navigation.classList.remove("show");
+
+            }
+        );
+
+    }
+);
